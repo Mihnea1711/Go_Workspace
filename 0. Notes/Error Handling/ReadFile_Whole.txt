@@ -1,0 +1,25 @@
+// You can edit this code!
+// Click here and start typing.
+package main
+
+import (
+	"fmt"
+	"log"
+	"os"
+	"reflect"
+)
+
+func main() {
+	//use this to read the whole file
+	//!be careful with very large files
+	
+	contents, err := os.ReadFile("file.txt")
+	if err != nil {
+		log.Fatal(err)
+	}
+	
+	//ReadFile returns a slice of bytes so, to print correctly, we should cast the slice to a string
+	fmt.Println(reflect.TypeOf(contents))	//this should be a slice of uint8 values
+	fmt.Println(string(contents))
+	fmt.Println(reflect.TypeOf(contents))	//this should be a string
+}

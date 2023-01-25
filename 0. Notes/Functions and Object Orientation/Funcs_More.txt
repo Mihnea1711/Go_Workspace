@@ -1,0 +1,47 @@
+// You can edit this code!
+// Click here and start typing.
+package main
+
+import "fmt"
+
+func add(x int, y int) int {
+	return x + y
+}
+
+// can put the type at the end of the params if all params have the same type
+func add3(x, y, z int) int {
+	return x + y + z
+}
+
+func multiply(x, y *int) int {
+	return *x * *y
+}
+
+// so
+// x, y are the same type(=int), therefore the type is specified after the parameters in the params list
+// the return list is made of a, b and c
+// a and b have are both int-s, so the type is specified after
+// c is a boolean
+// all of them are treated as local variables and don't need to be returned explictly
+func mathFuncs(x, y int) (a, b int, c bool) {
+	a = x + y
+	b = x * y
+	c = x > y
+	return
+
+	//if we specify the return params explictly, we basically "assign" the return values
+	//so c, althoug evaluates to true, now will be false
+	//return a, b, false
+}
+
+func main() {
+	x := 15
+	y := 25
+	z := 32
+	fmt.Println(add(x, y))
+	fmt.Println(add3(x, y, z))
+
+	fmt.Println(multiply(&x, &y))
+
+	fmt.Println(mathFuncs(x, y))
+}

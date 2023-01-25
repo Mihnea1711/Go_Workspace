@@ -1,0 +1,31 @@
+// You can edit this code!
+// Click here and start typing.
+package main
+
+import "fmt"
+
+func main() {
+	//standard array
+	myArr := [5]int{1, 2, 3, 4, 5}
+	fmt.Println("my array is: ", myArr)
+
+	myArr[1] = 50
+	fmt.Println("my array is: ", myArr)
+	fmt.Println("my array's len is: ", len(myArr))
+
+	//standard matrix
+	var myMat [2][2]int
+	for i := 0; i < 2; i++ {
+		for j := 0; j < 2; j++ {
+			myMat[i][j] = i + j
+		}
+	}
+	fmt.Println(myMat)
+	fmt.Println(myMat[0][1])
+	fmt.Println(len(myMat))
+	
+	//!! can't change length of arrays
+	// to add more elements, we should create a new larger array and copy elements there
+	// when arrays are passed as args in functions, go creates copies of the array
+	//we often use slices!
+}

@@ -1,0 +1,110 @@
+// You can edit this code!
+// Click here and start typing.
+package main
+
+import (
+	"fmt"
+	"io"
+	"log"
+	"os"
+)
+
+// function to defer the closing of a file
+func closer(f *osFile) error {
+	f.Close()
+	fmt.Println(f.Name(), " successfully closed the file!")
+	return nil
+}
+
+func main() {
+	//////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+	//create a file with os module
+	
+	f, err := os.Create("create.txt")
+	defer f.Close() //close the file when main returns
+	if err != nil {
+		//handle error
+		log.Fatal(err)
+	}
+	fmt.Println(f)
+
+	//////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+	//open/close a file
+	
+	f, err := os.Open("file.txt")
+	defer closer(f) //close the file by deferring the function closer
+	if err != nil {
+		log.Fatal(err)
+	}
+	fmt.Println("File successfully opened: ", f.Name())
+
+	//remove(delete) a file
+	err := os.Remove("delete.txt")
+	if err != nil {
+		log.Fatal(err)
+	}
+	fmt.Println("file successfully deleted")
+
+	//////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+	//copy a file
+	
+	//open the source file
+	src, err := os.Open("src.txt")
+	defer src.Close()
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	//the flag (os.O_RDWR | os. O_CREATE) allows the program to create the file if it does not exist
+	//last arg is the unix file permissions
+	//OpenFile(name string, flag int, perm FileMode)
+	dst, err := os.Openfile("dst.txt", os.O_RDWR|os.O_CREATE, 0755)
+	defer dst.Close()
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	//"read" from src and "write" in dst
+	w, err = io.Copy(dst, src) //functions returns nr of bytes written and an error if there is one, otherwise nil
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	//print type of w (should be an int64)
+	fmt.Println(reflect.Typeof(w))
+	fmt.Println(w)
+	
+	//////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+	//rename/move a file
+	
+	oldPath := "file/txt"
+	newPath := "./new/new.txt"
+	
+	//rename and store the file in a diff location
+	err := os.Rename(oldPath, newPath)
+	if err != nil {
+		log.Fatal(err)
+	}
+	
+	//////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+	//truncate file
+	
+	//truncate the file to the number of bytes specified as param
+	err := os.Truncate("myFile.txt", 10)
+	if err != nil {
+		log.Fatal(err)
+	}
+	
+	//////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+	//file info
+	//os.Stat returns a FileInfo that describes the file
+	//docs for interface FileInfo for more details !
+	
+	f, err := os.Stat("myFile.txt)
+	if err != nil {
+		log.Fatal(err)
+	}
+	log.Println("file name: ", f.Name())
+	log.Println("file size: ", f.Size())
+	log.Println("file permissions: ", f.Mode())
+}

@@ -1,0 +1,31 @@
+// You can edit this code!
+// Click here and start typing.
+package main
+
+import "fmt"
+
+func p(msg string, val int) {
+	//explicit panic call
+	//if val > 2 {
+	//	panic(msg)
+	//}
+
+	//runtime panic call for index out of range
+	x := [3]int{1, 2, 3}
+	x[val] = 5
+}
+
+func r() {
+	//here we recover from a panic and if there is an error, we log it
+	if err := recover(); err != nil {
+		fmt.Println(err)
+		fmt.Println("Recover from panic")
+	}
+}
+
+func main() {
+	//defer is a process that places a function call onto a stack.
+	//Each deferred function is executed in reverse order when the calling function completes whether a panic is called or not
+	defer r()
+	p("Runtime error! BlahBlah", 5)
+}

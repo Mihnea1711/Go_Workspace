@@ -1,0 +1,46 @@
+// You can edit this code!
+// Click here and start typing.
+package main
+
+import "fmt"
+
+// outer scope
+var workday int = 5
+
+func main() {
+	i := 10
+
+	//here we are reassigning i and weprint its local value for the for loop
+	for i := 0; i < 5; i++ {
+		fmt.Println(i)
+	}
+	fmt.Println(i) //prints 10
+
+	//this is a while loop
+	//here we are not reassigning i anymore, so it takes last value and completes the while loop
+	for i < 15 {
+		fmt.Println(i)
+		i++
+	}
+	fmt.Println(i) //prints 15
+
+	//this is a switch stmt
+	workday := 2	//local variable
+	switch workday {
+	case 1:
+		fmt.Println("Monday")
+	case 2:
+		fmt.Println("Tuesday")
+	case 3:
+		fmt.Println("Wednesday")
+	case 4:
+		fmt.Println("Thursday")
+	case 5:
+		fmt.Println("Friday")
+	case 6:
+		fmt.Println("Saturday")
+	case 7:
+		fmt.Println("Sunday")
+
+	}
+}

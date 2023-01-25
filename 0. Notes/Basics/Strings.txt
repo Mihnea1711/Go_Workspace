@@ -1,0 +1,26 @@
+// You can edit this code!
+// Click here and start typing.
+package main
+
+import (
+	"fmt"
+	"strings"
+)
+
+func main() {
+	//built in .Contains returns true/false if a substring is found within a string
+	fmt.Println(strings.Contains("working with string functions", "functions"))
+
+	//built in .Replace replaces number of occurences (specified in the last param)
+	// of a substring in a string
+	// 0 means leave it alone
+	// -1 means all
+	// > 0 means nr of occ
+	fmt.Println(strings.Replace("Working with string functions", "functions", "variables", -1))
+
+	//built in .Title capitalizes each word
+	fmt.Println(strings.Title("Working with string functions"))
+
+	//built in .Trim removes the wanted character from beginning and end of a string
+	fmt.Println(strings.Trim("_____Working with string functions__", "_"))
+}

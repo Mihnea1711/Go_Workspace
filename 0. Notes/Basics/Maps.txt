@@ -1,0 +1,50 @@
+// You can edit this code!
+// Click here and start typing.
+package main
+
+import "fmt"
+
+/*
+similar with a dict
+collection of unordered key-value pairs
+passed by ref
+keys must be unique and must pe comparable (most built in types are supported)
+values can be anything
+*/
+
+func main() {
+	//declaration of maps
+	//maps need to be initialized
+	var prodPrice map[string]int
+	fmt.Println(prodPrice)
+
+	//declare and init with make
+	tempPrice := make(map[string]int)
+	tempPrice["conv_widget"] = 150
+
+	//if a map is not initialized,
+	//we can assign another initialized map to the uninitialized one
+	prodPrice = tempPrice
+
+	//add an entry to the map (only works after it is initialized)
+	prodPrice["widget"] = 100
+	fmt.Println(prodPrice)
+
+	//declare and initialize a map using map literal
+	empPrice := map[string]int{
+		"widget": 75,
+	}
+	empPrice["turbo_widget"] = 100
+	fmt.Println(empPrice)
+
+	//standard method to search a key in a map
+	//returns value if found(otherwise 0) and true/false wether it is present or not
+	el, ok := empPrice["widget"]
+	fmt.Println(el, ok)
+
+	//built-ins of map
+	fmt.Println(len(empPrice)) //len of map
+	delete(empPrice, "widget") //delete the key from map
+
+	fmt.Println(empPrice)
+}

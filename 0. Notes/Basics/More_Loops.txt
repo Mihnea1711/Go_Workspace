@@ -1,0 +1,89 @@
+// You can edit this code!
+// Click here and start typing.
+package main
+
+import "fmt"
+
+func main() {
+//for loop
+//the init condition i is initialised before the iterations with 0
+//the bool condition is i < 5
+//the post-condition is i++ (it is evaluated at the end of each iteration)
+// the init and post conditions are optional
+// if missing, it works as a while loop, but i needs prior initialisation and it needs to be incremented manually
+//if everything is missing (ex: for {...} ), we have created an infinite loop
+
+//break keyword breaks out the for and stops its execution
+//continue keyword will reak out of the specific iteration (skips the iteration)
+//goto keyword sends the execution to a specific label (ex: goto <label> ) <= this will execute all the code after the label
+	sum := 0
+	for i := 0; i < 5; i++ {
+		if i == 2 {
+			break
+		}
+		sum += i
+	}
+	fmt.Println(sum)
+	
+//if stmt
+//the temp var can be initialised either before the if stmt, or inside the if or else blocks
+	//temp := 10
+	if temp := 10; temp < 15 {
+		fmt.Println("Ceva")
+	} else if temp > 15 {
+		fmt.Println("Altceva")
+	} else {
+		fmt.Println("15")
+	}
+	
+//switch
+//don't need the break keyword
+//go only executes the match case, not all the one's that follows
+//break is implicit
+//the switch can use variables from outside block
+	workday := 5
+	switch workday {
+		case 1:
+			fmt.Println("15")
+		case 2:
+			fmt.Println("15")
+		default:
+			fmt.Println("15")
+	}
+	
+	//sau
+	workday := 5
+	switch {
+		case workday == 1:
+			fmt.Println("15")
+		case workday < 2:
+			fmt.Println("15")
+		default:
+			fmt.Println("15")
+	}
+	
+//defer
+//compiles its args when first found
+//function executes when all neighbouring functions return
+
+	defer(fmt.Println("1"))
+	fmt.Println("2")		// this executes first
+		
+		
+//looping over collections
+	my_arr := []int{1, 2, 3, 4}
+	for i := 0; i < len(my_arr); i++ {
+		fmt.Println(i, my_arr[i])
+	}
+	
+	//sau
+	for i, value := range my_arr {
+		fmt.Println(i, value)
+	}
+	
+	//same with maps
+	my_map := map[string]int {"ceva": 5}
+	for key, value := range my_map {	// sau _, value ; sau key, _
+		fmt.Println(key, value)
+	}
+}

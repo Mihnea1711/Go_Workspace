@@ -1,0 +1,68 @@
+// You can edit this code!
+// Click here and start typing.
+package main
+
+import "fmt"
+
+//INTRO TO OOP
+
+// "class" with fields and methods
+type Cube struct {
+	depth  float64
+	width  float64
+	height float64
+}
+
+func (c *Cube) volume() float64 {
+	return c.depth * c.width * c.height
+}
+
+type Sphere struct {
+	radius float64
+}
+
+func (sphere *Sphere) volume() float64 {
+	return ((4.0 / 3.0) * 3.1415 * (sphere.radius * sphere.radius * sphere.radius))
+}
+
+// inheritance doesn't exist, it is just composition
+type Part struct {
+	Manufacturer string
+}
+
+func (p *Part) Mfc() string {
+	return p.Manufacturer
+}
+
+type Tire struct {
+	//if used like this it inffers that a tire has a part and the method will be called like this t.part.Mfc() <= wrong
+	//part Part
+
+	//this is called an anonymous field
+	//if used like this , the tire will "inherit" the Part properties
+	Part
+}
+
+// interfaces
+// it defines a method set that will be implemented by other shapes (cube sphere.. )
+//teoretically, the  Cube and the Sphere structs should implement this interface
+type Shape interface {
+	volume() float64
+}
+
+//this method is ranging over an array of shapes as input
+func getVolume(shapes ...Shape) float64 {
+	var volume float64
+	for _, shape := range shapes {
+		volume += s.volume()
+	}
+	return volume
+}
+
+func main() {
+	c := Cube{depth: 4, width: 4, height: 4}
+	fmt.Println("volume: ", c.volume())
+
+	t := Tire{Part{Manufacturer: "Michellin"}}
+	fmt.Println("Manufactured by: ", t.Mfc())
+}

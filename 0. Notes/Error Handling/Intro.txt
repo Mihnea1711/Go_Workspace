@@ -1,0 +1,23 @@
+// You can edit this code!
+// Click here and start typing.
+package main
+
+import (
+	"fmt"
+	"log"
+	"os"
+)
+
+func main() {
+	//Open(name string) (file *file, err error)
+	f, err := os.Open("myFile.txt")
+	defer f.Close()	//here we tell the compiler to execute this line of code after the current function returns (in this case, this defer is executed when main returns)
+	if err != nil {
+	//log is better than fmt for printing info (adds timestamps and additional info
+		log.Println(err)
+		return
+	}
+
+	fmt.Println("File successfully opened", f.Name())
+
+}
