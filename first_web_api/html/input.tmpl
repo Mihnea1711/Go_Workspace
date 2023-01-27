@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div style="text-align: center;">
+        <!-- aici mesajul pt user -->
+        <h1>{{ .Message }}</h1>    
+
+        <form action="/output/{{ .Option }}" method="POST">
+            <!-- input-ul user-ului -->
+            <input style="margin-bottom: 20px;" type="text" name="inputData"><br>
+            <button>Submit</button>
+        </form>
+
+        <div style="margin-top: 15px;">
+            <a href="/">Back to home page</a>
+        </div>
+    </div>
+</body>
+</html>
