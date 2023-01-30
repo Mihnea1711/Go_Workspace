@@ -15,7 +15,7 @@ import (
 
 type Embed struct {
 	Message string
-	Option  int
+	Id      int
 }
 
 type Output interface{}
@@ -30,7 +30,7 @@ func HomepageHandler(w http.ResponseWriter, req *http.Request, _ httprouter.Para
 }
 
 func InputHandler(w http.ResponseWriter, req *http.Request, p httprouter.Params) {
-	option, err := strconv.Atoi(p.ByName("option"))
+	id, err := strconv.Atoi(p.ByName("id"))
 	if err != nil {
 		log.Fatal(err)
 		return
@@ -41,7 +41,7 @@ func InputHandler(w http.ResponseWriter, req *http.Request, p httprouter.Params)
 		return
 	}
 	message := ""
-	switch option {
+	switch id {
 	case 1:
 		message = "Enter the array so I can sort it..."
 	case 2:
@@ -53,7 +53,7 @@ func InputHandler(w http.ResponseWriter, req *http.Request, p httprouter.Params)
 	case 5:
 		message = "Enter the array so I can find the missing number..."
 	}
-	templ.Execute(w, &Embed{Message: message, Option: option})
+	templ.Execute(w, &Embed{Message: message, Id: id})
 }
 
 func FibonacciHandler(w http.ResponseWriter, req *http.Request, p httprouter.Params) {
@@ -80,7 +80,7 @@ func stringArrToIntArray(inputArr []string) []int {
 }
 
 func OutputHandler(w http.ResponseWriter, r *http.Request, p httprouter.Params) {
-	option, err := strconv.Atoi(p.ByName("option"))
+	id, err := strconv.Atoi(p.ByName("id"))
 	if err != nil {
 		log.Fatal(err)
 		return
@@ -98,7 +98,7 @@ func OutputHandler(w http.ResponseWriter, r *http.Request, p httprouter.Params) 
 
 	var output Output
 
-	switch option {
+	switch id {
 	case 1:
 		//merge
 		output = funcUtils.SortArray(stringArrToIntArray(inputData))
@@ -127,9 +127,9 @@ func OutputHandler(w http.ResponseWriter, r *http.Request, p httprouter.Params) 
 func route() {
 	router := httprouter.New()
 
-	router.GET("/", HomepageHandler)
-	router.GET("/input/:option", InputHandler)
-	router.POST("/output/:option", OutputHandler)
+	router.GET("/functions", HomepageHandler)
+	router.GET("/functions/:id", InputHandler)
+	router.POST("/functions/:id", OutputHandler)
 
 	//different method using input params in URL
 	router.GET("/fibonacci/:nrOfTerms/", FibonacciHandler)

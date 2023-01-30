@@ -11,14 +11,14 @@
         <!-- aici mesajul pt user -->
         <h1>{{ .Message }}</h1>    
 
-        <form action="/output/{{ .Option }}" method="POST">
+        <form action="/functions/{{ .Id }}" method="POST">
             <!-- input-ul user-ului -->
             <input style="margin-bottom: 20px;" type="text" name="inputData"><br>
             <button>Submit</button>
         </form>
 
         <div style="margin-top: 15px;">
-            <a href="/">Back to home page</a>
+            <a href="/functions">Back to home page</a>
         </div>
     </div>
 </body>
