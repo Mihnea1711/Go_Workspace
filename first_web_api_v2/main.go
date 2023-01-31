@@ -1,6 +1,7 @@
 package main
 
 import (
+	"encoding/json"
 	"fmt"
 	"log"
 	"net/http"
@@ -12,6 +13,11 @@ import (
 
 	"github.com/gorilla/mux"
 )
+
+// this is a struct
+type Response struct {
+	Output interface{}
+}
 
 // helper function
 func stringArrToIntArray(inputArr []string) []int {
@@ -48,8 +54,12 @@ func handleFibonacci(w http.ResponseWriter, r *http.Request) {
 
 	fiboArray := funcUtils.Fibo(fiboArrayLength)
 
-	fmt.Fprintln(w, "Change array size from URL params!")
-	fmt.Fprintf(w, "Fibonacci array of size %v is: %v", fiboArrayLength, fiboArray)
+	w.Header().Set("Content-Type", "application/json; charset=utf-8")
+
+	// fmt.Fprintln(w, "Change array size from URL params!")
+	// fmt.Fprintf(w, "Fibonacci array of size %v is: %v\n", fiboArrayLength, fiboArray)
+
+	json.NewEncoder(w).Encode(Response{Output: fiboArray})
 }
 
 // renders a form which dynamically redirects the input to the specific handler
@@ -76,6 +86,8 @@ func handleSort(w http.ResponseWriter, r *http.Request) {
 
 	fmt.Fprintf(w, "Input array is: %v\n", inputArray)
 	fmt.Fprintf(w, "Sorted array is: %v\n", sorted)
+
+	json.NewEncoder(w).Encode(Response{Output: sorted})
 }
 
 // duplicate handler ( showing the duplicates of an array)
@@ -92,6 +104,8 @@ func handleGetDuplicates(w http.ResponseWriter, r *http.Request) {
 			fmt.Fprintf(w, "Elementul %v apare de %v ori\n", key, value)
 		}
 	}
+
+	json.NewEncoder(w).Encode(Response{Output: dict})
 }
 
 // duplicate handler (removing the duplicates from an array)
@@ -103,6 +117,8 @@ func handleRemoveDuplicates(w http.ResponseWriter, r *http.Request) {
 
 	fmt.Fprintf(w, "Input array is: %v\n", inputArray)
 	fmt.Fprintf(w, "Array without duplicates is: %v\n", arraySet)
+
+	json.NewEncoder(w).Encode(Response{Output: arraySet})
 }
 
 // substring handler (finds the longest palindromic substring from a given string)
@@ -113,7 +129,9 @@ func handlesubstring(w http.ResponseWriter, r *http.Request) {
 	substring := funcUtils.GetLongestSubstring(inputString)
 
 	fmt.Fprintln(w, "Change the input string from URL params!")
-	fmt.Fprintf(w, "Longest palindromic substring of %v is: %v", inputString, substring)
+	fmt.Fprintf(w, "Longest palindromic substring of %v is: %v\n", inputString, substring)
+
+	json.NewEncoder(w).Encode(Response{Output: substring})
 }
 
 // missing number handler (finds the missing number from an array starting from 0)
@@ -125,6 +143,8 @@ func handleFindMissing(w http.ResponseWriter, r *http.Request) {
 
 	fmt.Fprintf(w, "Input array is: %v\n", inputArray)
 	fmt.Fprintf(w, "Missing number is: %v\n", missing)
+
+	json.NewEncoder(w).Encode(Response{Output: missing})
 }
 
 func handleRequests() {
