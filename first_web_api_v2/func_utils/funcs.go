@@ -1,7 +1,5 @@
 package funcutils
 
-import "fmt"
-
 func Fibo(terms int) []int {
 	x := 0
 	y := 1
@@ -73,12 +71,6 @@ func GetDups(arr []int) map[int]int {
 			dict[elem]++
 		} else {
 			dict[elem] = 1
-		}
-	}
-
-	for key, value := range dict {
-		if value > 1 {
-			fmt.Printf("Elementul %v a aparut de %v ori\n", key, value)
 		}
 	}
 
