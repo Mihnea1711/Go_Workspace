@@ -1,0 +1,602 @@
+{
+	"info": {
+		"_postman_id": "007ac667-e8d6-4a94-b0e6-b1f335c0a101",
+		"name": "projectX_NESS",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "22313660"
+	},
+	"item": [
+		{
+			"name": "products",
+			"item": [
+				{
+					"name": "show products",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/products",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"products"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "create product",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "title",
+									"value": "Produs Test 222",
+									"type": "text"
+								},
+								{
+									"key": "description",
+									"value": "N-ati mai vazut voi asa ceva",
+									"type": "text"
+								},
+								{
+									"key": "price",
+									"value": "420",
+									"type": "text"
+								},
+								{
+									"key": "discountPercentage",
+									"value": "42",
+									"type": "text"
+								},
+								{
+									"key": "rating",
+									"value": "4.20",
+									"type": "text"
+								},
+								{
+									"key": "stock",
+									"value": "82",
+									"type": "text"
+								},
+								{
+									"key": "quantity",
+									"value": "82",
+									"type": "text"
+								},
+								{
+									"key": "brand",
+									"value": "Myke",
+									"type": "text"
+								},
+								{
+									"key": "category",
+									"value": "sh",
+									"type": "text"
+								},
+								{
+									"key": "thumbnail",
+									"value": "https://i.dummyjson.com/data/products/8/thumbnail.jpg",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8080/products",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"products"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "view product",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/products/856af1bd-21c2-4a60-98ac-3bab60dbf707",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"products",
+								"856af1bd-21c2-4a60-98ac-3bab60dbf707"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "edit product",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "title",
+									"value": "Microsoft Ceva 5555",
+									"type": "text"
+								},
+								{
+									"key": "description",
+									"value": "An apple mobile which is nothing like apple",
+									"type": "text"
+								},
+								{
+									"key": "price",
+									"value": "566",
+									"type": "text"
+								},
+								{
+									"key": "discountPercentage",
+									"value": "255",
+									"type": "text"
+								},
+								{
+									"key": "rating",
+									"value": "4.20",
+									"type": "text"
+								},
+								{
+									"key": "stock",
+									"value": "100",
+									"type": "text"
+								},
+								{
+									"key": "quantity",
+									"value": "100",
+									"type": "text"
+								},
+								{
+									"key": "brand",
+									"value": "Microsoft Apple aa",
+									"type": "text"
+								},
+								{
+									"key": "category",
+									"value": "laptops",
+									"type": "text"
+								},
+								{
+									"key": "thumbnail",
+									"value": "https://i.dummyjson.com/data/products/8/thumbnail.jpg",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8080/products/856af1bd-21c2-4a60-98ac-3bab60dbf707",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"products",
+								"856af1bd-21c2-4a60-98ac-3bab60dbf707"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete product",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/products/856af1bd-21c2-4a60-98ac-3bab60dbf707",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"products",
+								"856af1bd-21c2-4a60-98ac-3bab60dbf707"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "increment product qty",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/products/179a4422-fef4-471c-b035-932a36c5006a/incrementQuantity",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"products",
+								"179a4422-fef4-471c-b035-932a36c5006a",
+								"incrementQuantity"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "decrement product qty",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/products/0fbb6215-9068-43d9-94e6-635b39f70ba3/decrementQuantity",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"products",
+								"0fbb6215-9068-43d9-94e6-635b39f70ba3",
+								"decrementQuantity"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "change product QTY",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/products/2987ed0d-c0bc-4c29-9bb8-77a0e653fd86/changeProductQTY?value=-81",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"products",
+								"2987ed0d-c0bc-4c29-9bb8-77a0e653fd86",
+								"changeProductQTY"
+							],
+							"query": [
+								{
+									"key": "value",
+									"value": "-81"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "search properties",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/searchProperties/brand",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"searchProperties",
+								"brand"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "filter products by category",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/products/filter?brand=Apple",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"products",
+								"filter"
+							],
+							"query": [
+								{
+									"key": "brand",
+									"value": "Apple"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "show products based on reviews",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": ""
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "auth",
+			"item": [
+				{
+					"name": "register user",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\": \"mihnea1711\",\r\n    \"password\": \"parola123\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/users/register",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"users",
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "login user",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\": \"mihnea1711\",\r\n    \"password\": \"parola123\"\r\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8080/users/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"users",
+								"login"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "cart",
+			"item": [
+				{
+					"name": "add item to cart",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/users/1/cart/2987ed0d-c0bc-4c29-9bb8-77a0e653fd86/addToCart",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"users",
+								"1",
+								"cart",
+								"2987ed0d-c0bc-4c29-9bb8-77a0e653fd86",
+								"addToCart"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "show cart items",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/users/1/cart",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"users",
+								"1",
+								"cart"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "increase cart item qty",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/users/1/cart/2987ed0d-c0bc-4c29-9bb8-77a0e653fd86/increaseCartItemQTY",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"users",
+								"1",
+								"cart",
+								"2987ed0d-c0bc-4c29-9bb8-77a0e653fd86",
+								"increaseCartItemQTY"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "decrease cart item qty",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/users/1/cart/2987ed0d-c0bc-4c29-9bb8-77a0e653fd86/decreaseCartItemQTY",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"users",
+								"1",
+								"cart",
+								"2987ed0d-c0bc-4c29-9bb8-77a0e653fd86",
+								"decreaseCartItemQTY"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "remove item from cart",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/users/1/cart/0f29d0ee-94f4-4432-9d99-e46c4414892f/removeFromCart",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"users",
+								"1",
+								"cart",
+								"0f29d0ee-94f4-4432-9d99-e46c4414892f",
+								"removeFromCart"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "place order",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/users/1/placeOrder",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"users",
+								"1",
+								"placeOrder"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "review",
+			"item": [
+				{
+					"name": "create new review",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"description\":\"amazing\",\r\n    \"username\":\"Maria260\",\r\n    \"rating\":4\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/review/b5abb7d2-8465-406f-898c-097574c404f7",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"review",
+								"b5abb7d2-8465-406f-898c-097574c404f7"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "show reviews for a product",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": ""
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update a review",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": ""
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
