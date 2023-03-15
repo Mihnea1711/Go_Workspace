@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Product {{ .ID }}</title>
+    </head>
+    <body>
+        <h1>This is Product#{{ .ID }}</h1>
+
+        <a href="/products/{{ .Uuid }}/edit">Edit Product</a>
+
+        <form action="/products/{{ .Uuid }}" method="delete">
+            <button>Delete Product</button>
+        </form>
+
+        {{if .}}
+            <div>
+                <h3>Title: {{ .Title }}</h3>
+                <h3>Description: {{ .Description }}</h3>
+                <h3>Price: {{ .Price }}</h3>
+                <h3>Discount: {{ .DiscountPercentage }}</h3>
+                <h3>Rating: {{ .Rating }}</h3>
+                <h3>Stock: {{ .Stock }}</h3>
+                <h3>Quantity: {{ .Quantity }}</h3>
+                <h3>Brand: {{ .Brand }}</h3>
+                <h3>Category: {{ .Category }}</h3>
+                <h3>Thumbnail: <img src="{{ .Thumbnail }}" alt="thumbnail"></h3>
+            </div>
+        {{else}}
+            <div>
+                <h1>Product not found..</h1>
+            </div>
+        {{end}}
+    </body>
+</html>

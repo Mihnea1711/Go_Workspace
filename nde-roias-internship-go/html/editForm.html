@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit</title>
+
+    <style>
+        div {
+            text-align: left;
+            margin: 15px auto;
+        }
+    </style>
+</head>
+<body style="margin: 50px auto; width: 25%">
+    <h1>Edit the product!</h1>
+
+    <div>
+        <h1>{{.Uuid}}</h1>
+        <form action="/products/{{.Uuid}}" method="PUT">
+            <div>
+                <input type="text" name="title" id="title" value="{{.Title}}">
+                <label for="title">Title</label>
+                
+            </div>
+            <div>
+                <input type="text" name="description" id="description" value="{{.Description}}">
+                <label for="description">Description</label>
+                
+            </div>
+            <div>
+                <input type="text" name="price" id="price" value="{{.Price}}">
+                <label for="price">Price</label>
+                
+            </div>
+            <div>
+                <input type="text" name="discountPercentage" id="discountPercentage" value="{{.DiscountPercentage}}">
+                <label for="discountPercentage">Discount (%)</label>
+                
+            </div>
+            <div>
+                <input type="text" name="rating" id="rating" value="{{.Rating}}">
+                <label for="rating">Rating</label>
+                
+            </div>
+            <div>
+                <input type="text" name="stock" id="stock" value="{{.Stock}}">
+                <label for="stock">Stock</label>
+                
+            </div>
+            <div>
+                <input type="text" name="quantity" id="quantity" value="{{.Quantity}}">
+                <label for="quantity">Quantity</label>
+                
+            </div>
+            <div>
+                <input type="text" name="brand" id="brand" value="{{.Brand}}">
+                <label for="brand">Brand</label>
+                
+            </div>
+            <div>
+                <input type="text" name="category" id="category" value="{{.Category}}">
+                <label for="category">Category</label>
+               
+            </div>
+            <div>
+                <input type="text" name="thumbnail" id="thumbnail" value="{{.Thumbnail}}">
+                <label for="thumbnail">Thumbnail URL</label>             
+            </div>
+
+                <input type="submit"></input>
+
+        </form>
+    </div>
+</body>
+</html>

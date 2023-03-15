@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create a new product</title>
+
+    <style>
+        div {
+            text-align: left;
+            margin: 15px auto;
+        }
+    </style>
+</head>
+<body style="margin: 50px auto; width: 25%">
+    <h1>Create a new product!</h1>
+
+    <div>
+        <form action="/products/" method="post" enctype="multipart/form-data">
+            <div>
+                <input type="text" name="title" id="title">
+                <label for="title">Title</label>                
+            </div>
+            <div>
+                <input type="text" name="description" id="description">
+                <label for="description">Description</label>                
+            </div>
+            <div>
+                <input type="text" name="price" id="price">
+                <label for="price">Price</label>                
+            </div>
+            <div>
+                <input type="text" name="discountPercentage" id="discountPercentage">
+                <label for="discountPercentage">Discount (%)</label>                
+            </div>
+            <div>
+                <input type="text" name="rating" id="rating">
+                <label for="rating">Rating</label>                
+            </div>
+            <div>
+                <input type="text" name="stock" id="stock">
+                <label for="stock">Stock</label>                
+            </div>
+            <div>
+                <input type="text" name="quantity" id="quantity">
+                <label for="quantity">Quantity</label>                
+            </div>
+            <div>
+                <input type="text" name="brand" id="brand">
+                <label for="brand">Brand</label>                
+            </div>
+            <div>
+                <input type="text" name="category" id="category">
+                <label for="category">Category</label>               
+            </div>
+            <div>
+                <input type="text" name="thumbnail" id="thumbnail">
+                <label for="thumbnail">Thumbnail URL</label>                
+            </div>
+            <div>
+                <button>Submit</button>
+            </div>
+        </form>
+    </div>
+</body>
+</html>
